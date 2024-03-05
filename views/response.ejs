@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Responses</title>
+</head>
+<body>
+    <h1>Filtered Responses</h1>
+    <p>Total Responses: <%= response.totalResponses %></p>
+    <p>Page Count: <%= response.pageCount %></p>
+    <ul>
+        <% response.responses.forEach(res => { %>
+            <li>
+                <strong>Submission ID:</strong> <%= res.submissionId %><br>
+                <strong>Submission Time:</strong> <%= res.submissionTime %><br>
+                <ul>
+                    <% res.questions.forEach(question => { %>
+                        <li><strong><%= question.name %>:</strong> <%= question.value %></li>
+                    <% }); %>
+                </ul>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
